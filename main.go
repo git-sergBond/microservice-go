@@ -9,8 +9,8 @@ import (
 )
 
 type Time struct {
-	Time     string `json: "time,omitemty"`
-	NanoTime string `json: "nanoTime,omitemty"`
+	Time     string `json: "time,omitempty"`
+	NanoTime string `json: "nanoTime,omitempty"`
 }
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 	http.HandleFunc("/time", serveTime)
 	http.HandleFunc("/nanoTime", serveNanoTime)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe("0.0.0.0:8080", nil))
 
 }
 
