@@ -3,10 +3,10 @@ podman
 minikube
 
 Собрать образ:
-podman  build . -t go-hello
+docker  build . -t time-service:0.1.0
 
 Запустить контейнер:
-podman run -p 8080:8080 go-hello
+docker run -p 8080:8080 time-service:0.1.0
 
 Миникуб:
 minikube start --vm-driver=virtualbox
