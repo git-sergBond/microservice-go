@@ -1,3 +1,3 @@
-module hello-go
+module time-service
 
 go 1.19

@@ -1,6 +1,6 @@
 FROM golang:1.19 AS builder
 
-WORKDIR /app
+WORKDIR /opt/time-service
 
 COPY main.go .
 COPY go.mod .
@@ -9,8 +9,10 @@ RUN CGO_ENABLED=0 GOOS=linux go build
 
 FROM alpine:3.10
 
-WORKDIR /app
+EXPOSE 8080
 
-COPY --from=builder /app/hello-go .
+WORKDIR /opt/time-service
 
-CMD ["./hello-go"]
+COPY --from=builder /opt/time-service/time-service .
+
+CMD ["/opt/time-service/time-service"]
